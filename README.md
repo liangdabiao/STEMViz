@@ -191,12 +191,23 @@ choco install ffmpeg
 ```
 
 **LaTeX (MiKTeX)**：
+
+> ⚠️ **注意**：项目不包含 MiKTeX 安装包，需要用户自行下载安装。
+> 如果不安装 LaTeX，Manim 会自动降级使用纯文本渲染数学公式，但效果会较差。
+
 ```powershell
 # 下载安装包（阿里云镜像，约 140MB）
 # https://mirrors.aliyun.com/CTAN/systems/win32/miktex/setup/windows-x64/basic-miktex-25.12-x64.exe
 
+# 或者从官方网站下载
+# https://miktex.org/download
+
 # 运行安装程序，选择"为当前用户安装"
-# 安装后确保 latex 和 dvisvgm 命令可用
+# 安装路径通常为：C:\Users\<用户名>\AppData\Local\Programs\MiKTeX\miktex\bin\x64
+
+# 安装后验证（需要重启终端）
+latex --version
+dvisvgm --version
 ```
 
 #### macOS
@@ -204,8 +215,13 @@ choco install ffmpeg
 # 安装 FFmpeg
 brew install ffmpeg
 
-# 安装 LaTeX（用于数学公式渲染）
+# 安装 LaTeX（用于数学公式渲染，可选但推荐）
+# 如果不安装，Manim 会自动降级使用纯文本渲染
 brew install --cask mactex
+
+# 验证安装
+latex --version
+dvisvgm --version
 ```
 
 #### Linux (Ubuntu/Debian)
@@ -213,8 +229,13 @@ brew install --cask mactex
 # 安装 FFmpeg
 sudo apt install ffmpeg
 
-# 安装 LaTeX
+# 安装 LaTeX（用于数学公式渲染，可选但推荐）
+# 如果不安装，Manim 会自动降级使用纯文本渲染
 sudo apt install texlive texlive-latex-extra texlive-fonts-extra texlive-science
+
+# 验证安装
+latex --version
+dvisvgm --version
 ```
 
 **验证安装：**

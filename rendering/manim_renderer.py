@@ -349,6 +349,7 @@ class ManimRenderer:
             r"latex error converting",
             r"dvisvgm error",
             r"Value error - invalid argument values",
+            r"Attribute error",
         ]
 
         for pattern in retryable_patterns:
@@ -379,6 +380,11 @@ class ManimRenderer:
 
             # Reduce animation durations
             (r"run_time\s*=\s*\d+\.?\d*", "run_time = 1.0"),
+
+            # Fix rate_function compatibility issues
+            (r"rate_functions\.ease_in_out", "rate_functions.ease_in_out_sine"),
+            (r"rate_functions\.ease_in", "rate_functions.ease_in_sine"),
+            (r"rate_functions\.ease_out", "rate_functions.ease_out_sine"),
         ]
 
         for pattern, replacement in simplifications:
