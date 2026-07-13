@@ -525,12 +525,12 @@ STEMViz/
 - **Manim Community**：优秀的数学动画引擎
 - **3Blue1Brown**：激励了教育数学可视化的方向
 - **火山引擎 / 豆包**：强大的 AI 能力（LLM、多模态、TTS）
+- 原项目：[https://github.com/qnguyen3/STEMViz](https://github.com/qnguyen3/STEMViz)
+- linuxdo社区：https://linux.do
+
 
 ---
 
-## 📮 联系方式
-
-原项目：[https://github.com/qnguyen3/STEMViz](https://github.com/qnguyen3/STEMViz)
 
 ---
 
