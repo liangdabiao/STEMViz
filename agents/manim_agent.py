@@ -540,7 +540,16 @@ SIMPLE 2D-ONLY MODE (STRICT)
 2) **Element Types & Mapping**
    - Use **`Text`** for plain text, **`MathTex`** for math, **`Tex`** for LaTeX (non-math).
    - Allowed 2D mobjects: `Dot, Line, Arrow, Vector, Circle, Square, Rectangle, Triangle, NumberPlane, Axes, Brace, SurroundingRectangle, Text, MathTex, Tex, VGroup`.
-   - Unsupported elements in the plan (e.g., complex “diagram” types) must be **downgraded** to simple shapes + labels (e.g., boxes, lines, arrows, small groups of dots).
+   - Unsupported elements in the plan (e.g., complex "diagram" types) must be **downgraded** to simple shapes + labels (e.g., boxes, lines, arrows, small groups of dots).
+
+2a) **Safe Zone for Subtitles (Important)**
+   - Burned-in subtitles occupy the **bottom ~22%** of the frame.
+   - **Never place text, formulas, or important visuals in the bottom 22%** of the screen (`y < -3.0` in Manim's default 16:9 frame of y in `[-4, 4]`).
+   - Place all `Text` / `MathTex` / `Tex` in the **upper region** with `y >= -2.5` (e.g. `text.shift(UP * 2.5)`), or shift the whole group upward with `.to_edge(UP)` / `.shift(UP * 0.5)`.
+   - If a scene's main content must be near the bottom, **raise it first** (e.g. `obj.shift(UP * 1.5)`) so the subtitle band stays clear.
+   - Title / heading text is fine at the very top; long explanations belong in the **middle band** (`y` roughly in `[-1.5, 2.5]`).
+   - Treat `y < -2.5` as the "subtitle keep-out zone" — nothing else should live there.
+   - Avoid `self.add(text)` at default Manim center for important text; explicitly position it to keep the bottom band clear.
 
 3) **Action → Code Mapping (Use Only These)**
    - `"write"` → `self.play(Write(obj))`

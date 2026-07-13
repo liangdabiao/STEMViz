@@ -49,7 +49,7 @@ class VideoCompositor:
         audio_codec: str = "aac",
         audio_bitrate: str = "128k",
         subtitle_burn_in: bool = True,
-        subtitle_font_size: int = 24,
+        subtitle_font_size: int = 22,
         subtitle_font_color: str = "white",
         subtitle_background: bool = True,
         subtitle_background_opacity: float = 0.5,
@@ -323,8 +323,15 @@ class VideoCompositor:
 
             # Create subtitle filter if burning in and subtitle_path provided
             if self.subtitle_burn_in and subtitle_path:
-                subtitle_filter = self._create_subtitle_filter(subtitle_path)
-                video = input_video.filter('subtitles', subtitle_path)
+                # Use force_style to position subtitles in a dedicated safe zone
+                # at the bottom, with semi-transparent background box, to avoid
+                # overlapping with main content rendered by Manim.
+                force_style = self._build_subtitle_force_style()
+                video = input_video.filter(
+                    'subtitles',
+                    subtitle_path,
+                    force_style=force_style
+                )
             else:
                 video = input_video
 
@@ -373,8 +380,74 @@ class VideoCompositor:
 
     def _create_subtitle_filter(self, subtitle_path: str) -> str:
         """Create subtitle filter string for FFmpeg"""
-        # Basic subtitle filter - can be enhanced for more styling
+        # Subtitle styling is now handled via force_style in _compose_video.
         return subtitle_path
+
+    def _build_subtitle_force_style(self) -> str:
+        """
+        Build FFmpeg force_style string for subtitle rendering.
+
+        Positions subtitles in a dedicated safe zone at the bottom of the
+        frame with a semi-transparent background, so they don't overlap with
+        main Manim content.
+        """
+        position_map = {
+            "bottom": 2,
+            "center": 5,
+            "top": 8,
+        }
+        alignment = position_map.get(self.subtitle_position, 2)
+        # ASS playresy default is 288 units; with 1440p frame height, 1 unit
+        # equals ~5 px. MarginV=20 leaves ~100 px from bottom edge so the
+        # subtitle sits in the bottom ~7% band, well clear of typical Manim
+        # content (which usually occupies y in [-3, 3]).
+        margin_v = 20 if self.subtitle_position == "bottom" else 30
+
+        if self.subtitle_background:
+            back_color = "&H80000000"  # 50% transparent black (ASS BGR)
+            border_style = "1"
+        else:
+            back_color = "&H00000000"
+            border_style = "0"
+
+        # ffmpeg-python will wrap this value in single quotes automatically,
+        # and inside the filter the comma-separated style pairs are parsed
+        # by av_strtok so they must remain comma-separated.
+        return (
+            f"FontName=Arial,"
+            f"FontSize={self.subtitle_font_size},"
+            f"PrimaryColour={self._ass_color(self.subtitle_font_color)},"
+            f"BackColour={back_color},"
+            f"BorderStyle={border_style},"
+            f"Outline=1,"
+            f"OutlineColour=&H00000000,"
+            f"Shadow=0,"
+            f"Alignment={alignment},"
+            f"MarginV={margin_v},"
+            f"MarginL=40,"
+            f"MarginR=40"
+        )
+
+    def _ass_color(self, color: str) -> str:
+        """Convert a CSS color name/hex to ASS BGR hex string."""
+        color = (color or "white").strip().lower()
+
+        named = {
+            "white": "#FFFFFF",
+            "black": "#000000",
+            "red": "#FF0000",
+            "green": "#00FF00",
+            "blue": "#0000FF",
+            "yellow": "#FFFF00",
+        }
+        if color in named:
+            color = named[color]
+
+        if color.startswith("#") and len(color) == 7:
+            r, g, b = color[1:3], color[3:5], color[5:7]
+            return f"&H00{b}{g}{r}".upper()
+
+        return "&H00FFFFFF"
 
     def get_supported_formats(self) -> List[str]:
         """Get list of supported input/output formats"""
