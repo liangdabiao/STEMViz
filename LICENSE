@@ -1,0 +1,58 @@
+Personal Use, No Distribution License (PUND) v1.0
+
+Copyright (c) 2025 Quan Nguyen
+
+Effective date: October 4, 2025
+
+1. Definitions
+- “Software” means the source code, object code, models, assets, and documentation made available by the Licensor under this License.
+- “Generated Content” means any output, media, data, text, images, audio, video, or other content produced by or through use of the Software.
+- “Licensor” means Quan Nguyen.
+- “You” means the individual person who downloads, installs, accesses, or uses the Software.
+- “Commercial Use” means any use that is intended for or directed toward commercial advantage or monetary compensation (including but not limited to sales, licensing, paid services, ad-supported distribution, lead-generation, promotion of a business, internal business operations of a for-profit entity, or use by or for an organization in the course of its business).
+
+2. License Grant (Personal, Non-Commercial)
+Subject to your continuous compliance with this License, the Licensor grants you a limited, non-exclusive, non-transferable, non-sublicensable, revocable license to:
+1. Use the Software solely for your personal, non-commercial purposes; and
+2. Modify the Software solely for your personal, non-commercial purposes; and
+3. Create and use Generated Content solely for your personal, non-commercial purposes.
+
+All rights not expressly granted are reserved by the Licensor.
+
+3. Prohibited Activities
+You may not, under any circumstances:
+1. Distribute the Software or any modifications or derivative works thereof, in whole or in part, in any form (including by making it available on public or private repositories, websites, app stores, package managers, networks, or by providing it as a hosted service or API).
+2. Distribute or publicly share any Generated Content (including uploading to social media, learning platforms, streaming/video sites, or file-sharing services), whether or not for payment.
+3. Use the Software or any Generated Content for Commercial Use.
+4. Sublicense, sell, rent, lease, lend, or otherwise commercialize the Software or Generated Content.
+5. Remove or alter any proprietary notices, copyright, or attribution contained in the Software.
+6. Circumvent or attempt to circumvent any technical or usage restrictions in or relating to the Software or Generated Content.
+
+4. Third-Party Components
+The Software may include or link to third-party components that are provided under separate terms. Those terms govern such components. Nothing in this License limits your rights (or obligations) under those third-party licenses.
+
+5. Ownership
+As between the parties, the Licensor owns all rights, title, and interest in and to the Software and (subject to third-party rights) the Generated Content. This License does not transfer any ownership rights.
+
+6. Termination
+This License automatically terminates if you breach any of its terms. Upon termination, you must immediately stop using the Software and Generated Content and destroy all copies of the Software (including modifications) in your possession or control. Sections 3–10 survive termination.
+
+7. No Warranty
+THE SOFTWARE AND GENERATED CONTENT ARE PROVIDED “AS IS” AND “AS AVAILABLE,” WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND NON-INFRINGEMENT. YOU ASSUME ALL RISKS ARISING FROM THEIR USE.
+
+8. Limitation of Liability
+TO THE MAXIMUM EXTENT PERMITTED BY LAW, IN NO EVENT WILL THE LICENSOR BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, EXEMPLARY, OR PUNITIVE DAMAGES, OR FOR ANY LOSS OF PROFITS, REVENUE, DATA, GOODWILL, OR BUSINESS INTERRUPTION, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. THE LICENSOR’S TOTAL LIABILITY FOR ANY CLAIM RELATING TO THE SOFTWARE OR GENERATED CONTENT WILL NOT EXCEED ONE HUNDRED (100) USD.
+
+9. Indemnity
+You will indemnify and hold the Licensor harmless from and against any claims, liabilities, damages, losses, and expenses (including reasonable attorneys’ fees) arising out of or related to your use of the Software or Generated Content in violation of this License or applicable law.
+
+10. Updates; Changes
+The Licensor may publish updated versions of this License from time to time. Continued use of the Software after an update constitutes your acceptance of the updated terms.
+
+11. Governing Law; Venue
+This License is governed by the laws of Sweden, without regard to its conflict-of-laws principles. The courts located in Stockholm, Sweden will have exclusive jurisdiction over any dispute arising from or relating to this License or the Software.
+
+12. Commercial Licensing
+If you wish to use, distribute, or commercialize the Software or any Generated Content beyond the scope permitted here, you must obtain a separate commercial license from the Licensor.
+
+---

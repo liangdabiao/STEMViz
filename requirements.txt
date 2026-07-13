@@ -1,0 +1,19 @@
+gradio>=4.0.0
+
+# Animation
+manim>=0.18.0
+
+# HTTP API (for Doubao API calls)
+requests>=2.31.0
+
+# Audio/Video Processing
+ffmpeg-python>=0.2.0
+pydub>=0.25.1
+
+# SRT/Subtitle Processing
+webvtt-py>=0.5.0
+
+# Data Validation & Config
+pydantic>=2.0.0
+pydantic-settings>=2.0.0
+python-dotenv>=1.0.0
