@@ -350,6 +350,7 @@ class ManimRenderer:
             r"dvisvgm error",
             r"Value error - invalid argument values",
             r"Attribute error",
+            r"Type error",
         ]
 
         for pattern in retryable_patterns:
@@ -385,6 +386,10 @@ class ManimRenderer:
             (r"rate_functions\.ease_in_out", "rate_functions.ease_in_out_sine"),
             (r"rate_functions\.ease_in", "rate_functions.ease_in_sine"),
             (r"rate_functions\.ease_out", "rate_functions.ease_out_sine"),
+
+            # Remove deprecated/unsupported parameters
+            (r",\s*align\s*=\s*['\"][^'\"]*['\"]", ""),
+            (r",\s*color\s*=\s*['\"]#[0-9a-fA-F]{6}['\"]", ", color=WHITE"),
         ]
 
         for pattern, replacement in simplifications:
